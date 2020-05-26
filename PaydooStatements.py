@@ -46,14 +46,7 @@ for currency in all_files:
     currency.insert(2, 'Day', currency['DateTime Converted'].dt.day)
     currency.insert(3, 'Month', currency['DateTime Converted'].dt.month)
     currency.insert(4, 'Year', currency['DateTime Converted'].dt.year)
-    currency.drop(columns=['DateTime Converted','Billing Method','Scheme','BIN','Last 4',
-       'Issuing Country', 'MDR Region', 'MDR Product Type', 'MDR Card Type',
-       'Username', 'Merchant Identifier', 'Terminal Identifier',
-       'Merchant Category Code','Description', 'RRN', 'ARN',
-       'Merchant Reference', 'UniqueID', 'Auth Code',
-       'Electronic Commerce Indicator', 'MID Currency','Interchange Fee Descriptor',
-       'Scheme Fee Descriptor','Reserve Release Date','Settlement Currency','Reason Code',
-       'Reason Code Description', 'CPD','Chargeback Date'], axis = 1, inplace = True)
+    currency.drop(columns=['DateTime Converted','Billing Method','Scheme','BIN','Last 4','Issuing Country','MDR Region','MDR Product Type','MDR Card Type','Username','Merchant Identifier','Terminal Identifier','Merchant Category Code','Description','RRN','ARN','Merchant Reference', 'UniqueID', 'Auth Code','Electronic Commerce Indicator', 'MID Currency','Interchange Fee Descriptor','Scheme Fee Descriptor','Reserve Release Date','Settlement Currency','Reason Code','Reason Code Description', 'CPD','Chargeback Date'], errors='ignore', axis = 1, inplace = True)
     print(currency)
 
 ### Exporting all files to CSV
