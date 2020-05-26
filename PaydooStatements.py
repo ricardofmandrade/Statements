@@ -8,7 +8,7 @@ pathtofile = '/Users/ricardo.andrade/Downloads/Paydoo/Tx_Statements/*'
 pathtomerged = '/Users/ricardo.andrade/Downloads/Paydoo/Merged_Statements/'
 file = '/Users/ricardo.andrade/Downloads/Paydoo/Tx_Statements/20200506_uphold_gbp_TransactionDetail.csv'
 
-### Not being used ##
+### Not being used 
 pattern_usd = re.compile(pattern = 'usd*')
 pattern_eur = re.compile(pattern = 'eur*')
 pattern_gbp = re.compile(pattern = 'gbp*')
@@ -46,7 +46,14 @@ for currency in all_files:
     currency.insert(2, 'Day', currency['DateTime Converted'].dt.day)
     currency.insert(3, 'Month', currency['DateTime Converted'].dt.month)
     currency.insert(4, 'Year', currency['DateTime Converted'].dt.year)
-    currency.drop(columns=['DateTime Converted','CPD'], axis = 1, inplace = True)
+    currency.drop(columns=['DateTime Converted','Billing Method','Scheme','BIN','Last 4',
+       'Issuing Country', 'MDR Region', 'MDR Product Type', 'MDR Card Type',
+       'Username', 'Merchant Identifier', 'Terminal Identifier',
+       'Merchant Category Code','Description', 'RRN', 'ARN',
+       'Merchant Reference', 'UniqueID', 'Auth Code',
+       'Electronic Commerce Indicator', 'MID Currency','Interchange Fee Descriptor',
+       'Scheme Fee Descriptor','Reserve Release Date','Settlement Currency','Reason Code',
+       'Reason Code Description', 'CPD','Chargeback Date'], axis = 1, inplace = True)
     print(currency)
 
 ### Exporting all files to CSV
@@ -55,4 +62,3 @@ eur_csv.to_csv(pathtomerged+"eur_transactions.csv", index=False, encoding='utf-8
 gbp_csv.to_csv(pathtomerged+"gbp_transactions.csv", index=False, encoding='utf-8-sig')
 
 print(currency.columns)
-print(pd.__version__)
