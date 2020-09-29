@@ -4,9 +4,9 @@ import re
 import glob
 import os 
 
-pathtofile = '/Users/ricardo.andrade/Downloads/Paydoo/Tx_Statements/*'
-pathtomerged = '/Users/ricardo.andrade/Downloads/Paydoo/Merged_Statements/'
-file = '/Users/ricardo.andrade/Downloads/Paydoo/Tx_Statements/20200506_uphold_gbp_TransactionDetail.csv'
+pathtofile = '/Users/ricardoandrade/Downloads/Paydoo/Tx_Statements/*'
+pathtomerged = '/Users/ricardoandrade/Downloads/Paydoo/Merged_Statements/'
+file = '/Users/ricardoandrade/Downloads/Paydoo/Tx_Statements/20200506_uphold_gbp_TransactionDetail.csv'
 
 ### Not being used 
 pattern_usd = re.compile(pattern = 'usd*')
